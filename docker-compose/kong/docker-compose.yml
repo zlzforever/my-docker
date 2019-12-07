@@ -20,7 +20,7 @@ services:
     depends_on:
       - kong-database   
   kong-gateway:
-    image: zlzforever/kong:latest
+    image: kong:latest
     restart: always
     container_name: kong-gateway
     environment:
