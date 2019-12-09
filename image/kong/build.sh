@@ -1,1 +1,1 @@
-docker build -t zlzforever/kong:latest .
+docker build -t zlzforever/kong:1.4.1 .
