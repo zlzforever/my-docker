@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysql:
+    image: 'mysql:8.0.16'
+    restart: always
+    container_name: mysql
+    ports:
+      - 3306:3306
+      - 33060:33060
+    environment:
+      - MYSQL_ROOT_PASSWORD=1qazZAQ!
+      - TZ=Asia/Shanghai  
