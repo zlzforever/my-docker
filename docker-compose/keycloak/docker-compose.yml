@@ -1,0 +1,23 @@
+version: "3"
+services:
+  keycloak:
+    image: jboss/keycloak
+    ports:
+      - "8080:8080"
+    environment:
+      - "KEYCLOAK_USER=keycloak"
+      - "KEYCLOAK_PASSWORD=1qazZAQ!"
+      - "DB_VENDOR=postgres"
+      - "DB_ADDR=keycloak-postgres"
+      - "DB_DATABASE=postgres"
+      - "DB_USER=postgres"
+      - "DB_PASSWORD=1qazZAQ!qwe"
+      - "PROXY_ADDRESS_FORWARDING=true"
+    depends_on:
+      - keycloak-postgres
+  keycloak-postgres:
+    image: postgres:9.6
+    hostname: keycloak-postgres
+    container_name: keycloak-postgres
+    environment:
+      - "POSTGRES_PASSWORD:1qazZAQ!qwe"
