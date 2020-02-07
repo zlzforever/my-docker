@@ -7,18 +7,16 @@ services:
     environment:
       - POSTGRES_USER=kong
       - POSTGRES_DB=kong
-    volumes:
-      - ~/storage/data/kong/postgresql/data:/var/lib/postgresql/data
   kong-database-bootstrap:
     image: kong:latest
     container_name: kong-database-bootstrap
-    environment: 
+    environment:
       - KONG_DATABASE=postgres
       - KONG_PG_HOST=kong-database
       - KONG_CASSANDRA_CONTACT_POINTS=kong-database
     command: kong migrations bootstrap
     depends_on:
-      - kong-database   
+      - kong-database
   kong-gateway:
     image: kong:latest
     restart: always
@@ -46,8 +44,8 @@ services:
     ports:
       - 1337:1337
     depends_on:
-      - kong-gateway 
+      - kong-gateway
     environment:
       - NODE_ENV=production
       - TOKEN_SECRET=Abcd.abcd.654321
-      - TZ=Asia/Shanghai 
+      - TZ=Asia/Shanghai
