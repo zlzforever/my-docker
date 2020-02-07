@@ -29,12 +29,12 @@ services:
     command: kong docker-start
     volumes:
       - ~/github/my-docker/docker-compose/kong/kong.conf:/etc/kong/kong.conf
-      - ~/storage/data/kong/logs:/usr/local/kong/logs
+      # - ~/storage/data/kong/logs:/usr/local/kong/logs
     ports:
-      - "8000:8000"
-      - "8443:8443"
-      - "8001:8001"
-      - "8444:8444"
+      - "80:8000"
+      - "443:8443"
+      - "9001:8001"
+      - "9444:8444"
     depends_on:
       - kong-database
   konga:
