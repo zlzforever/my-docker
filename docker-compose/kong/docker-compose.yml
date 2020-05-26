@@ -1,7 +1,7 @@
 version: "3"
 services:
   kong-database:
-    image: postgres
+    image: postgres:9.6
     restart: always
     container_name: kong-database
     environment:
@@ -29,10 +29,10 @@ services:
     command: kong docker-start
     volumes:
       - ~/github/my-docker/docker-compose/kong/kong.conf:/etc/kong/kong.conf
-      # - ~/storage/data/kong/logs:/usr/local/kong/logs
+      - ~/storage/data/kong/logs:/usr/local/kong/logs
     ports:
-      - "80:8000"
-      - "443:8443"
+      - "6565:8000"
+      - "6566:8443"
       - "9001:9001"
       - "9444:9444"
     depends_on:
