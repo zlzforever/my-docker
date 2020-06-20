@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jupyterlab:
+    image: 'amalic/jupyterlab'
+    restart: always
+    container_name: 'jupyterlab'
+    ports:
+      - 6566:8888
+    volumes: 
+      - ~/jupyterlab-notebooks:/notebooks
+    environment:
+      - TZ=Asia/Shanghai 
+      - PASSWORD=zousong,200 
