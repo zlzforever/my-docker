@@ -1,0 +1,15 @@
+version: '3'
+services:
+  clickhouse:
+    image: 'yandex/clickhouse-server'
+    restart: always
+    container_name: 'clickhouse'
+    ports:
+      - 8123:8123
+      - 9000:9000
+    volumes: 
+      - ~/clickhouse:/var/lib/clickhouse
+    ulimits:
+      nofile: 262144
+    environment:
+      - TZ=Asia/Shanghai 
