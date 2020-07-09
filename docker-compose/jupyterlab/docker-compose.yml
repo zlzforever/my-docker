@@ -7,7 +7,7 @@ services:
     ports:
       - 6566:8888
     volumes: 
-      - ~/jupyterlab-notebooks:/notebooks
+      - /Users/lewis/Documents/Lewis/hicto/project:/notebooks
     environment:
       - TZ=Asia/Shanghai 
       - PASSWORD=zousong,200 
