@@ -1,0 +1,10 @@
+version: "3"
+services:
+  postgresql:
+    image: postgres:9.6
+    restart: always
+    container_name: postgresql
+    environment:
+      - POSTGRES_PASSWORD=1qazZAQ!
+    ports:
+      - 5433:5432
