@@ -7,8 +7,10 @@ services:
     ports:
       - 8123:8123
       - 9000:9000
+      - "9001:22"
     volumes: 
-      - ~/clickhouse:/var/lib/clickhouse
+      - ~/clickhouse/data:/var/lib/clickhouse
+      - ~/clickhouse:/clickhouse
     ulimits:
       nofile: 262144
     environment:

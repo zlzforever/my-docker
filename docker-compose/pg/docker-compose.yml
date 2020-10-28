@@ -1,0 +1,17 @@
+services:
+    kong-migrations:
+      image: "${KONG_DOCKER_TAG:-kong:latest}"
+      command: kong migrations bootstrap
+      depends_on:
+        - db
+      environment:
+        KONG_DATABASE: postgres
+        KONG_PG_DATABASE: ${KONG_PG_DATABASE:-kong}
+        KONG_PG_HOST: db
+        KONG_PG_USER: ${KONG_PG_USER:-kong}
+        KONG_PG_PASSWORD_FILE: /run/secrets/kong_postgres_password
+      secrets:
+        - kong_postgres_password
+      networks:
+        - kong
+      restart: on-failure
