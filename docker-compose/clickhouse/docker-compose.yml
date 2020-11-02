@@ -9,8 +9,7 @@ services:
       - 9000:9000
       - "9001:22"
     volumes: 
-      - ~/clickhouse/data:/var/lib/clickhouse
-      - ~/clickhouse:/clickhouse
+      - ~/data/clickhouse:/var/lib/clickhouse
     ulimits:
       nofile: 262144
     environment:

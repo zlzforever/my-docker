@@ -10,3 +10,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=1qazZAQ!
       - TZ=Asia/Shanghai  
+    volumes:
+      - ./conf.d:/etc/mysql/conf.d
+      - ~/data/mysql:/var/lib/mysql      
