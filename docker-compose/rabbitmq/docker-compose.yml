@@ -11,7 +11,7 @@ services:
       - 25672:25672
       - 15671:15671
       - 15672:15672
-  environment:
-    - RABBITMQ_DEFAULT_USER=user
-    - RABBITMQ_DEFAULT_PASS=password
-    - TZ=Asia/Shanghai  
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+      - TZ=Asia/Shanghai  
