@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgresql:
-    image: postgres:9.6
+    image: postgres
     restart: always
     container_name: postgresql
     environment:
