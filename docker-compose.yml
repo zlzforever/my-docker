@@ -1,0 +1,73 @@
+version: '3'
+services:
+  mysql:
+    image: 'mysql:8.0.16'
+    restart: always
+    ports:
+      - 3306:3306
+      - 33060:33060
+    environment:
+      - MYSQL_ROOT_PASSWORD=1qazZAQ!
+      - TZ=Asia/Shanghai  
+    volumes:
+      - ./data/mysql/conf.d:/etc/mysql/conf.d
+      - ./data/mysql/data:/var/lib/mysql 
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    restart: always
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 25672:25672
+      - 15671:15671
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=1qazZAQ!
+      - TZ=Asia/Shanghai  
+  postgresql:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=1qazZAQ!
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432                 
+    volumes:
+      - ./data/postgresql/data:/var/lib/postgresql/data/pgdata 
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - "ACCEPT_EULA=Y"
+      - "SA_PASSWORD=1qazZAQ!"
+      - "MSSQL_PID=Express"  
+  clickhouse:
+    image: 'yandex/clickhouse-server'
+    restart: always
+    ports:
+      - 8123:8123
+      - 9000:9000
+      - "9001:22"
+    ulimits:
+      nofile: 262144
+    volumes:
+      - ./data/clickhouse/data:/var/lib/clickhouse
+    environment:
+      - TZ=Asia/Shanghai
+  metabase:
+    image: "metabase/metabase"
+    restart: always
+    environment:
+      JAVA_OPTS: "-Xmx4g"
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: 1qazZAQ!
+      MB_DB_HOST: postgresql
+    ports:
+      - 33000:3000                  
