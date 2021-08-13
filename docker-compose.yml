@@ -24,7 +24,7 @@ services:
       - 15672:15672
     environment:
       - RABBITMQ_DEFAULT_USER=user
-      - RABBITMQ_DEFAULT_PASS=1qazZAQ!
+      - RABBITMQ_DEFAULT_PASS=1qazZAQ!123
       - TZ=Asia/Shanghai  
   postgresql:
     image: postgres
