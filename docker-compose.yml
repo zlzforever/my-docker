@@ -70,4 +70,12 @@ services:
       MB_DB_PASS: 1qazZAQ!
       MB_DB_HOST: postgresql
     ports:
-      - 33000:3000                  
+      - 33000:3000  
+  geoserver:
+    image: 'geonode/geoserver'
+    restart: always
+    ports:
+      - 8124:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/geoserver/data:/geoserver_data/data               
