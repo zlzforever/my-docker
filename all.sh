@@ -1,0 +1,1 @@
+docker-compose up -d mysql rabbitmq postgresql sqlserver clickhouse metabase geoserver
