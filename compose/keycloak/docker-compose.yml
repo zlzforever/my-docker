@@ -1,6 +1,6 @@
 version: "3"
 services:
-  keycloak:
+  instanse:
     image: jboss/keycloak
     ports:
       - "8080:8080"
@@ -15,7 +15,7 @@ services:
       - "PROXY_ADDRESS_FORWARDING=true"
     depends_on:
       - keycloak-postgres
-  keycloak-postgres:
+  postgres:
     image: postgres:9.6
     hostname: keycloak-postgres
     container_name: keycloak-postgres

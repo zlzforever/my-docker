@@ -1,0 +1,14 @@
+version: '3'
+services:
+  instanse:
+    image: postgis/postgis
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=1qazZAQ!
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    command: -c 'config_file=/etc/postgresql/postgresql.conf'
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data/pgdata
+      - ./default.conf:/etc/postgresql/postgresql.conf

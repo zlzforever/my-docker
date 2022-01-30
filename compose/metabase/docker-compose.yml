@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=1qazZAQ!
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./data:/var/lib/postgresql/data/pgdata
+  instanse:
+    image: "metabase/metabase"
+    restart: always
+    environment:
+      JAVA_OPTS: "-Xmx4g"
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: 1qazZAQ!
+      MB_DB_HOST: postgresql
+    ports:
+      - 33000:3000

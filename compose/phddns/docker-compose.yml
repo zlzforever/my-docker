@@ -1,6 +1,6 @@
 version: "3"
 services:
-  phddns:
+  instanse:
     image: zlzforever/phddns
     restart: always
     container_name: phddns

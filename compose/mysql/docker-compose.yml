@@ -1,0 +1,15 @@
+version: '3'
+services:
+  instanse:
+    image: 'mysql/mysql-server:8.0'
+    restart: always
+    ports:
+      - 3306:3306
+      - 33060:33060
+    environment:
+      - MYSQL_ROOT_PASSWORD=1qazZAQ!
+      - MYSQL_ROOT_HOST='%'
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./conf.d:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql

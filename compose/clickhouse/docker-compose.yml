@@ -1,0 +1,16 @@
+version: '3'
+services:
+  instanse:
+    platform: linux/amd64
+    image: 'yandex/clickhouse-server:21.12-alpine'
+    restart: always
+    ports:
+      - 8123:8123
+      - 9000:9000
+    ulimits:
+      nofile: 262144
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./data:/var/lib/clickhouse
+      - ./config.xml:/etc/clickhouse-server/config.xml
