@@ -7,4 +7,4 @@ docker run --rm -it \
     -e access_key= \
     -e access_key_secret= \
     -e kong_admin_api='http://192.168.1.17:8001' \
-    -e domains='zlzforever.com' zlzforever/kong-certbot:aliyun
+    -e domains='zlzforever.com,*.zlzforever.com' zlzforever/kong-certbot:aliyun
