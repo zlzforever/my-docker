@@ -1,0 +1,1 @@
+docker buildx build --platform linux/amd64 -t zlzforever/kong-certbot:aliyun .

@@ -30,7 +30,8 @@
           -->
         <size>1000M</size>
         <count>10</count>
-        <!-- <console>1</console> --> <!-- Default behavior is autodetection (log to console if not daemon mode and is tty) -->
+        <!-- <console>1</console> -->
+        <!-- Default behavior is autodetection (log to console if not daemon mode and is tty) -->
 
         <!-- Per level overrides (legacy):
 
@@ -233,7 +234,8 @@
 
     <!-- Used with https_port and tcp_port_secure. Full ssl options list: https://github.com/ClickHouse-Extras/poco/blob/master/NetSSL_OpenSSL/include/Poco/Net/SSLManager.h#L71 -->
     <openSSL>
-        <server> <!-- Used for https server AND secure tcp port -->
+        <server>
+            <!-- Used for https server AND secure tcp port -->
             <!-- openssl req -subj "/CN=localhost" -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /etc/clickhouse-server/server.key -out /etc/clickhouse-server/server.crt -->
             <certificateFile>/etc/clickhouse-server/server.crt</certificateFile>
             <privateKeyFile>/etc/clickhouse-server/server.key</privateKeyFile>
@@ -250,7 +252,8 @@
             <preferServerCiphers>true</preferServerCiphers>
         </server>
 
-        <client> <!-- Used for connecting to https dictionary source and secured Zookeeper communication -->
+        <client>
+            <!-- Used for connecting to https dictionary source and secured Zookeeper communication -->
             <loadDefaultCAFile>true</loadDefaultCAFile>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
@@ -651,18 +654,18 @@
             </shard>
         </test_shard_localhost>
         <test_cluster_two_shards_localhost>
-             <shard>
-                 <replica>
-                     <host>localhost</host>
-                     <port>9000</port>
-                 </replica>
-             </shard>
-             <shard>
-                 <replica>
-                     <host>localhost</host>
-                     <port>9000</port>
-                 </replica>
-             </shard>
+            <shard>
+                <replica>
+                    <host>localhost</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+            <shard>
+                <replica>
+                    <host>localhost</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
         </test_cluster_two_shards_localhost>
         <test_cluster_two_shards>
             <shard>
@@ -723,7 +726,7 @@
         If this section is not present in configuration, all hosts are allowed.
     -->
     <!--<remote_url_allow_hosts>-->
-        <!-- Host should be specified exactly as in URL. The name is checked before DNS resolution.
+    <!-- Host should be specified exactly as in URL. The name is checked before DNS resolution.
             Example: "yandex.ru", "yandex.ru." and "www.yandex.ru" are different hosts.
                     If port is explicitly specified in URL, the host:port is checked as a whole.
                     If host specified here without port, any port with this host allowed.
@@ -734,7 +737,7 @@
                     <host>yandex.ru</host>
         -->
 
-        <!-- Regular expression can be specified. RE2 engine is used for regexps.
+    <!-- Regular expression can be specified. RE2 engine is used for regexps.
             Regexps are not aligned: don't forget to add ^ and $. Also don't forget to escape dot (.) metacharacter
             (forgetting to do so is a common source of error).
         -->
@@ -1055,23 +1058,23 @@
          a Base64-encoded key to the stdout. -->
     <encryption_codecs>
         <!-- aes_128_gcm_siv -->
-            <!-- Example of getting hex key from env -->
-            <!-- the code should use this key and throw an exception if its length is not 16 bytes -->
-            <!--key_hex from_env="..."></key_hex -->
+        <!-- Example of getting hex key from env -->
+        <!-- the code should use this key and throw an exception if its length is not 16 bytes -->
+        <!--key_hex from_env="..."></key_hex -->
 
-            <!-- Example of multiple hex keys. They can be imported from env or be written down in config-->
-            <!-- the code should use these keys and throw an exception if their length is not 16 bytes -->
-            <!-- key_hex id="0">...</key_hex -->
-            <!-- key_hex id="1" from_env=".."></key_hex -->
-            <!-- key_hex id="2">...</key_hex -->
-            <!-- current_key_id>2</current_key_id -->
+        <!-- Example of multiple hex keys. They can be imported from env or be written down in config-->
+        <!-- the code should use these keys and throw an exception if their length is not 16 bytes -->
+        <!-- key_hex id="0">...</key_hex -->
+        <!-- key_hex id="1" from_env=".."></key_hex -->
+        <!-- key_hex id="2">...</key_hex -->
+        <!-- current_key_id>2</current_key_id -->
 
-            <!-- Example of getting hex key from config -->
-            <!-- the code should use this key and throw an exception if its length is not 16 bytes -->
-            <!-- key>...</key -->
+        <!-- Example of getting hex key from config -->
+        <!-- the code should use this key and throw an exception if its length is not 16 bytes -->
+        <!-- key>...</key -->
 
-            <!-- example of adding nonce -->
-            <!-- nonce>...</nonce -->
+        <!-- example of adding nonce -->
+        <!-- nonce>...</nonce -->
 
         <!-- /aes_128_gcm_siv -->
     </encryption_codecs>
