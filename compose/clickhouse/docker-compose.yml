@@ -12,5 +12,5 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ./data:/var/lib/clickhouse
+      - ~/data/clickhouse:/var/lib/clickhouse
       - ./config.xml:/etc/clickhouse-server/config.xml
