@@ -12,7 +12,7 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       # - ./conf.d:/etc/mysql/conf.d
-      - ~/data/mysql:/var/lib/mysql
+      - ~/docker_data/mysql:/var/lib/mysql
   arm64:
     image: 'mysql/mysql-server:8.0'
     restart: always
@@ -24,4 +24,4 @@ services:
       - TZ=Asia/Shanghai
       - MYSQL_ROOT_HOST='%'
     volumes:
-      - ~/data/mysql_arm64:/var/lib/mysql
+      - ~/docker_data/mysql_arm64:/var/lib/mysql

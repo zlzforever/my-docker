@@ -1,8 +1,9 @@
 version: '3'
 services:
-  instanse:
+  postgre:
     image: postgis/postgis
     restart: always
+    container_name: postgre
     environment:
       - POSTGRES_PASSWORD=1qazZAQ!
       - PGDATA=/var/lib/postgresql/data/pgdata
@@ -10,5 +11,5 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ~/data/postgre:/var/lib/postgresql/data/pgdata
+      - ~/docker_data/postgre:/var/lib/postgresql/data/pgdata
       - ./default.conf:/etc/postgresql/postgresql.conf
